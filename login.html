@@ -20,8 +20,6 @@
 					<nav>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
 							<li><a href="login.html" class="active">Login</a></li>
 						</ul>
 					</nav>
@@ -35,6 +33,7 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Login</h1>
+							<form action="assets/php/loginform.php">
 							<label for="email">Email</label>
 							<input type="email" id="email" name="email" placeholder="example@example.com" required="true">
 							<br><br>
@@ -42,8 +41,9 @@
 							<input type="password" id="passw" name="passw" required="true">
 							<br><br>
 							<input type="submit" value="Login">
-							<br><br>
+							</form>
 							<p>New user? <a href="signup.html">Create Account</a></p>
+							
 						</div>
 					</section>
 
