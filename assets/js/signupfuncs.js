@@ -21,26 +21,72 @@ function getCookie(cname) {
   return "";
 }
 
+function checkdataforemail(array,attemptedemail) {
+	arraylength = array.length
+	for (var i = 0; i<arraylength; i++) {
+		console.log(array[i])
+		if (array[i].email == attemptedemail) {
+			return false
+			break
+		}
+	}
+	return true
+}
+
 function loginfunc() {
-	var email = document.getElementById("email").value
+	document.getElementById("incorrect").innerText = ""
+	var email2 = document.getElementById("email").value
 	var passw = document.getElementById("passw").value
 	
-	var savedemail = getCookie("email")
-	var savedpassw = getCookie("passw")
+	var logindata = getCookie("logindata")
 	
-	if (savedemail != "") {
-		
+	if (logindata != "") {
+		logindata = window.atob(logindata)
+		logindata = JSON.parse(logindata)
+		arraylength = logindata.length
+		for (var i = 0; i < arraylength; i++) {
+			console.log(logindata[i])
+			if (logindata[i].email == email2 && logindata[i].password == passw) {
+				console.log("Login Success!!!!! WOOOOO!")
+				break
+			} else {
+				console.log("login failure :(")
+			}
+		}
+		document.getElementById("incorrect").innerText = "Incorrect Login"
+	} else {
+		document.getElementById("incorrect").innerText = "Incorrect Login"
 	}
 }
 
 function signupfunc() {
 	var fname = document.getElementById("fname").value
 	var lname = document.getElementById("lname").value
-	var email = document.getElementById("email").value
+	var email2 = document.getElementById("email").value
 	var passw = document.getElementById("passw").value
 	
-	setCookie("fname",fname,180)
-	setCookie("lname",lname,180)
-	setCookie("email",email,180)
-	setCookie("passw",passw,180)
+	if (getCookie("logindata") == "") {
+		var saveddata = [
+			{firstname:fname, lastname:lname, email:email2, password:passw}
+		]
+		var encode = JSON.stringify(saveddata)
+		encode = window.btoa(encode)
+		
+		setCookie("logindata",encode,180)
+	} else {
+		var decode = window.atob(getCookie("logindata"))
+		decode = JSON.parse(decode)
+		
+		if (checkdataforemail(decode,email2) == true) {
+		var newlogin = {firstname:fname, lastname:lname, email:email2, password:passw}
+		decode.push(newlogin)
+		
+		var encode = JSON.stringify(decode)
+		encode = window.btoa(encode)
+		setCookie("logindata",encode,180)
+		window.reload();
+		} else {
+		document.getElementById("error").innerText = "Email is Already Registered."
+		}
+	}
 }
