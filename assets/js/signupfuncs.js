@@ -1,3 +1,7 @@
+//Debug commands for the console//
+//     !!!get login data!!! 
+//console.log(JSON.parse(window.atob(getCookie("logindata"))))
+
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -48,7 +52,11 @@ function loginfunc() {
 			console.log(logindata[i])
 			if (logindata[i].email == email2 && logindata[i].password == passw) {
 				console.log("Login Success!!!!! WOOOOO!")
-				break
+				
+				var data = JSON.stringify(logindata[i])
+				var data = window.btoa(data)
+				setCookie("sessiondata",data,1)
+				return
 			} else {
 				console.log("login failure :(")
 			}
@@ -84,7 +92,7 @@ function signupfunc() {
 		var encode = JSON.stringify(decode)
 		encode = window.btoa(encode)
 		setCookie("logindata",encode,180)
-		window.reload();
+		location.reload()
 		} else {
 		document.getElementById("error").innerText = "Email is Already Registered."
 		}
