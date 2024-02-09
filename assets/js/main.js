@@ -4,6 +4,22 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 (function($) {
 
 	var	$window = $(window),
@@ -186,5 +202,13 @@
 
 				}
 			});
+			
+	// login to dashboard link change sidebar thing idk
+	var data = getCookie("sessiondata")
+	if (data != "") {
+		document.getElementById("loginlink").innerText = "Dashboard"
+		document.getElementById("loginlink").href = "dashboard.html"
+		
+	}
 
 })(jQuery);
