@@ -111,6 +111,21 @@ input, select, textarea {
 			-ms-transition: none !important;
 			transition: none !important;
 		}
+/*COlumn and row*/
+.column {
+  float: center;
+  width: 25%;
+  padding: 10px;
+  height: 750px; /* Should be removed. Only for demonstration */
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Type */
 
