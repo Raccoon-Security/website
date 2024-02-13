@@ -37,6 +37,18 @@ function checkdataforemail(array,attemptedemail) {
 	return true
 }
 
+function checkdataforpassw(array,attemptedpassw) {
+	arraylength = array.length
+	for (var i = 0; i<arraylength; i++) {
+		console.log(array[i])
+		if (array[i].password == attemptedpassw) {
+			return false
+			break
+		}
+	}
+	return true
+}
+
 function loginfunc() {
 	document.getElementById("incorrect").innerText = ""
 	var email2 = document.getElementById("email").value
@@ -56,6 +68,8 @@ function loginfunc() {
 				var data = JSON.stringify(logindata[i])
 				var data = window.btoa(data)
 				setCookie("sessiondata",data,1)
+				
+				location.replace("dashboard.html")
 				return
 			} else {
 				console.log("login failure :(")
@@ -92,9 +106,74 @@ function signupfunc() {
 		var encode = JSON.stringify(decode)
 		encode = window.btoa(encode)
 		setCookie("logindata",encode,180)
-		location.reload()
+		location.replace("login.html")
 		} else {
 		document.getElementById("error").innerText = "Email is Already Registered."
+		}
+	}
+}
+
+function logoutfunc() {
+	setCookie("sessiondata","",1)
+	location.replace("login.html")
+}
+var tempval = false
+function passwordchangeinit() {
+	var passw = document.getElementById("passw").value
+	
+	var decode = window.atob(getCookie("sessiondata"))
+	decode = JSON.parse(decode)
+	
+	if (tempval == false) {
+		if (decode.password == passw) {
+			document.getElementById("passwlabel").innerText = "Enter Your New Password"
+			var tempval = true
+		} else {
+			document.getElementById("incorrect").innerText = "Incorrect Password"
+		}
+	} else {
+		decode.password = passw
+		
+		var encode = JSON.stringify(decode)
+		encode = setCookie("sessiondata",window.btoa(encode),1)
+	
+		var decodedos = window.atob(getCookie("logindata"))
+		decodedos = JSON.parse(decodedos)
+	
+		arraylength = decodedos.length
+		for (var i = 0; i < arraylength; i++) {
+			if (decodedos[i].email == decode.email) {
+				decodedos[i].password = passw
+				var encodedos = JSON.stringify(decodedos)
+				encodedos = setCookie("logindata",window.btoa(encode),180)
+				tempval = false
+				break
+			}
+		}
+	}
+}
+
+function passwordchangeend() {
+	var passw = document.getElementById("passw").value
+
+	var decode = window.atob(getCookie("sessiondata"))
+	decode = JSON.parse(decode)
+	
+	decode.password = passw
+	
+	var encode = JSON.stringify(decode)
+	encode = setCookie("sessiondata",window.btoa(encode),1)
+	
+	var decodedos = window.atob(getCookie("logindata"))
+	decodedos = JSON.parse(decodedos)
+	
+	arraylength = decodedos.length
+	for (var i = 0; i < arraylength; i++) {
+		if (decodedos[i].email == decode.email) {
+			decodedos[i].password = passw
+			var encodedos = JSON.stringify(decodedos)
+			encodedos = setCookie("logindata",window.atob(encode),180)
+			break
 		}
 	}
 }
