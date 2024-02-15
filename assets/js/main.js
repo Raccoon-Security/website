@@ -211,7 +211,7 @@ function getCookie(cname) {
 		document.getElementById("loginlink").innerText = "Dashboard"
 		document.getElementById("loginlink").href = "dashboard.html"
 		
-		if (location.hred = "dashboard.html") {
+		if (document.URL.includes("dashboard.html")) {
 			document.getElementById("welcomemsg").innerText = "Welcome " + data.firstname + "!"
 		}
 	}
