@@ -116,7 +116,7 @@ input, select, textarea {
   float: center;
   width: 25%;
   padding: 10px;
-  height: 750px; /* Should be removed. Only for demonstration */
+  height: 850px; /* Should be removed. Only for demonstration */
   text-align: center;
 }
 
@@ -2690,6 +2690,7 @@ input, select, textarea {
 		list-style: none;
 		margin-left: -1em;
 		padding-left: 0;
+		justify-content: center;
 	}
 
 		ul.actions li {
