@@ -77,7 +77,7 @@ function loginfunc() {
 				var data = JSON.stringify(logindata[i])
 				var data = window.btoa(data)
 				setCookie("sessiondata",data,1)
-
+				
 				window.location.replace("dashboard.html")
 				return
 			} else {
@@ -104,7 +104,6 @@ function signupfunc() {
 		encode = window.btoa(encode)
 		
 		setCookie("logindata",encode,180)
-		
 		window.location.replace("login.html")
 	} else {
 		var decode = window.atob(getCookie("logindata"))
@@ -117,7 +116,6 @@ function signupfunc() {
 		var encode = JSON.stringify(decode)
 		encode = window.btoa(encode)
 		setCookie("logindata",encode,180)
-		
 		window.location.replace("login.html")
 		} else {
 		document.getElementById("error").innerText = "Email is Already Registered."
