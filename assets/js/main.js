@@ -206,9 +206,14 @@ function getCookie(cname) {
 	// login to dashboard link change sidebar thing idk
 	var data = getCookie("sessiondata")
 	if (data != "") {
+		data = window.atob(data)
+		data = JSON.parse(data)
 		document.getElementById("loginlink").innerText = "Dashboard"
 		document.getElementById("loginlink").href = "dashboard.html"
 		
+		if (document.URL.includes("dashboard.html")) {
+			document.getElementById("welcomemsg").innerText = "Welcome " + data.firstname + "!"
+		}
 	}
 
 })(jQuery);
