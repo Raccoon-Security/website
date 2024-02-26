@@ -13,14 +13,16 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+		<script src="assets/js/signupfuncs.js"></script>
 		<!-- Sidebar -->
 			<section id="sidebar">
 				<div class="inner">
 					<nav>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="login.html" class="active">Login</a></li>
+							<li><a href="Products.html">Products</a></li>
+							<li><a id="loginlink" href="login.html" class="active">Login</a></li>
+							<li><a href="contactsupport.html">Support</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -33,17 +35,16 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Login</h1>
-							<form action="assets/php/loginform.php">
 							<label for="email">Email</label>
 							<input type="email" id="email" name="email" placeholder="example@example.com" required="true">
-							<br><br>
+							<br>
 							<label for="passw">Password</label>
 							<input type="password" id="passw" name="passw" required="true">
+							<br>
+							<input type="submit" value="Login" onclick="loginfunc();">
 							<br><br>
-							<input type="submit" value="Login">
-							</form>
 							<p>New user? <a href="signup.html">Create Account</a></p>
-							
+							<p id="incorrect" style="color:red"></p>
 						</div>
 					</section>
 
@@ -66,6 +67,5 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
