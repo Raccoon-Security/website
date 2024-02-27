@@ -19,10 +19,26 @@
 				<div class="inner">
 					<nav>
 						<ul>
+   <style>
+    .image {
+        margin-top: -10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .image:hover img {
+        transform: scale(1.1);
+    }
+</style>
+
+<div class="image">
+    <img src="images/TysLogo.png" alt="TysLogo.png" style="width: 200px; height: auto;">
+</div>
+    <!-- Other header content goes here -->
+
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="products.html"  class="active">Products</a></li>
+							<li><a href="products.html">Products</a></li>
+							<li><a id="loginlink" href="login.html">Login</a></li>
+							<li><a href="contactsupport.html">Support</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -37,34 +53,25 @@
 							<section">
 								<h1 class="major">
 									<span class="image right">
-										<img src="images/visa-logo-visa-icon-free-free-vector.jpg" title ="Visa" alt="" width="50" 
-     height="50">
+										<img src="images/visa-logo-visa-icon-free-free-vector.jpg" title ="Visa" alt="" width="50" height="auto">
 									</span>
 									<span class="image right">
-										<img src="images/JCB.png" alt=""  title ="JCB" width="50" 
-     height="50">
+										<img src="images/JCB.png" alt=""  title ="JCB" width="50" height="auto">
 									</span>
 									<span class="image right">
-										<img src="images/discover.png" alt="" title ="Discover" width="50" 
-     height="50">
+										<img src="images/discover.png" alt="" title ="Discover" width="50" height="auto">
 									</span>
 									<span class="image right">
-										<img src="images/67185_american_express_icon.png" title ="American Express" alt="" width="75" 
-     height="75">
+										<img src="images/67185_american_express_icon.png" title ="American Express" alt="" width="50" height="auto">
 									</span>
 									Pay with Credit Card
 								</h1>
 								
-							</section>
-
-							<!-- Table -->
-							<!-- Buttons -->
-							<section>
 								<input type="text" id="fname" placeholder="Name On Card" name="fname"><br><br>
 								<input type="text" id="cnum" placeholder="Card Number" name="cnum"><br><br>
 								<div class="row gtr-uniform">
 									<div class="col-4">
-										<input type="month" name="myMonth" id="myMonth" value="2014-05" />
+										<input type="text" name="exprDate" id="exprDate" placeholder="00/00" />
 									</div>
 									<div class="col-6 col-12-xsmall">
 										<input type="text" name="CVC" id="CVC" value="" placeholder="CVC" />
@@ -89,13 +96,11 @@
 									<div class="col-4">
 										<input type="text" name="Country" id="Country" placeholder="Country" />
 									</div>
+									<div>
+										<input type="text" id="MobileNumber" placeholder="Mobile Number" name="MobileNumber">
+									</div>
 								</div>
-								<input type="text" id="MobileNumber" placeholder="Mobile Number" name="MobileNumber"><br><br>
-							</section>
-
-
-							<!-- Image -->
-							<section>
+								<br><br>
 								<ul class="actions">
 									<li><a href="Done.html" class="button">Purchase</a></li>
 								</ul>
