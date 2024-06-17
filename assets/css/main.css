@@ -119,6 +119,27 @@ input, select, textarea {
   height: 850px; /* Should be removed. Only for demonstration */
   text-align: center;
 }
+.columnFiftyPercent {
+	float: center;
+	width: 50%;
+	padding: 10px;
+	height: auto; /* Should be removed. Only for demonstration */
+	text-align: center;
+  }
+.column2 {
+	float: center;
+	width: 25%;
+	padding: 10px;
+	height: 700px; /* Should be removed. Only for demonstration */
+	text-align: center;
+  }
+  .column3 {
+	float: center;
+	width: 25%;
+	padding: 10px;
+	height: 100px; /* Should be removed. Only for demonstration */
+	text-align: center;
+  }
 
 /* Clear floats after the columns */
 .row:after {
